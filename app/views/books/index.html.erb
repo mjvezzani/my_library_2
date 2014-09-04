@@ -1,0 +1,9 @@
+<h1>Your books!</h1>
+
+<% @books.each do |book| %>
+  <%= link_to book.title, book_path(book) %>
+  <br/>
+  Checked out?: <%= book.checked_out %>
+  <br/>
+  <br/>
+<% end %>
