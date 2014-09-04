@@ -1,10 +1,10 @@
 <h1><%= @book.title %></h1>
 
 <%= form_for @book do |f| %>
-  <%= f.collection_select(:id, Friend.all, :id, :full_name) %>
+  <%= f.collection_select(:friend_id, Friend.all, :id, :full_name) %>
   <br/>
   <%= f.label :checked_out %>
-  <%= f.check_box :checked_out, {}, true, false %>
+  <%= f.check_box :checked_out, {}, "true", "false" %>
   <br/>
   <%= f.submit %>
 <% end %>

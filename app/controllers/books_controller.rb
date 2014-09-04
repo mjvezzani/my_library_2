@@ -9,10 +9,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:book][:id])
-    friend = Friend.find(params[:id])
-
+    @book = Book.find(params[:id])
     if @book.update(book_params)
+      if @book.checked_out == false
+        @book.friend = nil
+        @book.save
+      end
       flash[:success] = "Book checked out"
       redirect_to root_path
     else
